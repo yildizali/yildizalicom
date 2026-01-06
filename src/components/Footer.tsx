@@ -29,7 +29,7 @@ const Footer = () => {
               <Globe className="w-6 h-6" />
             </a>
             <a 
-              href="mailto:contact@aliyildiz.com" 
+              href="mailto:" 
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Email"
             >
