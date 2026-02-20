@@ -1,60 +1,59 @@
-import { Linkedin, Globe } from "lucide-react";
-import heroIllustration from "@/assets/hero-illustration.png";
+import { ArrowDown, Mail } from "lucide-react";
+import { personalInfo } from "@/data/resume";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
-      {/* Background illustration */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-30 pointer-events-none">
-        <img 
-          src={heroIllustration} 
-          alt="Data engineer workspace" 
-          className="w-full h-full object-contain object-right"
-        />
-      </div>
-      
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ background: 'var(--gradient-hero)' }}
+    >
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: 'linear-gradient(hsl(270 60% 62%) 1px, transparent 1px), linear-gradient(90deg, hsl(270 60% 62%) 1px, transparent 1px)',
+        backgroundSize: '60px 60px',
+      }} />
+
       <div className="section-container relative z-10 py-20">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-block mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-              Senior Data Engineer
+            <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
+              {personalInfo.title}
             </span>
           </div>
-          
-          {/* Location */}
-          <p className="text-muted-foreground mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            Amsterdam, Netherlands
-          </p>
-          
-          {/* Name */}
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            Ali Yildiz, MSc
+
+          {/* Headline */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 animate-fade-up leading-tight" style={{ animationDelay: '0.2s' }}>
+            Engineering Data,{' '}
+            <span className="text-gradient">End to End</span>
           </h1>
-          
+
           {/* Tagline */}
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            Building Scalable ML & Big Data Pipelines | Transforming data into actionable insights with cutting-edge technologies
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            Senior Data Engineer & Cloud Architect — building scalable pipelines across GCP, AWS, and Azure
           </p>
-          
+
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.5s' }}>
-            <a 
-              href="https://linkedin.com/in/yildizalicom" 
-              target="_blank" 
-              rel="noopener noreferrer"
+          <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+            <a
+              href="#experience"
               className="btn-primary inline-flex items-center gap-2"
             >
-              <Linkedin className="w-5 h-5" />
-              Connect on LinkedIn
+              <ArrowDown className="w-4 h-4" />
+              View Experience
             </a>
-            <a 
-              href="#" 
+            <a
+              href="#contact"
               className="btn-outline inline-flex items-center gap-2"
             >
-              <Globe className="w-5 h-5" />
-              Visit Website
+              <Mail className="w-4 h-4" />
+              Get in Touch
             </a>
+          </div>
+
+          {/* Name */}
+          <div className="mt-16 animate-fade-up" style={{ animationDelay: '0.5s' }}>
+            <p className="text-sm text-muted-foreground font-mono">{personalInfo.fullName}</p>
           </div>
         </div>
       </div>

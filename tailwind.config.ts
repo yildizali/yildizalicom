@@ -57,21 +57,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        teal: {
-          DEFAULT: "hsl(var(--teal))",
-          light: "hsl(var(--teal-light))",
-          dark: "hsl(var(--teal-dark))",
-        },
-        cream: {
-          DEFAULT: "hsl(var(--cream))",
-          dark: "hsl(var(--cream-dark))",
-        },
-        blush: "hsl(var(--blush))",
-        sage: "hsl(var(--sage))",
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -103,9 +92,9 @@ export default {
         "fade-in": "fade-in 0.8s ease-out forwards",
       },
       boxShadow: {
-        soft: "0 4px 20px -4px hsl(195 40% 20% / 0.08)",
-        card: "0 8px 30px -8px hsl(195 40% 20% / 0.1)",
-        button: "0 4px 14px -3px hsl(183 40% 40% / 0.4)",
+        soft: "0 4px 20px -4px hsl(0 0% 0% / 0.3)",
+        card: "0 8px 30px -8px hsl(0 0% 0% / 0.4)",
+        button: "0 4px 14px -3px hsl(270 60% 62% / 0.4)",
       },
     },
   },
