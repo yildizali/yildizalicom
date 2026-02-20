@@ -1,117 +1,73 @@
-import { Code, Cloud, Radio, Database, GraduationCap, Award } from "lucide-react";
+import { Code, Cloud, Database, Settings, Award } from "lucide-react";
+import { skills, certifications } from "@/data/resume";
 
-interface SkillCategory {
-  icon: React.ReactNode;
-  title: string;
-  items: string[];
-}
-
-const skillCategories: SkillCategory[] = [
-  {
-    icon: <Code className="w-5 h-5" />,
-    title: "Languages",
-    items: ["Spark", "Scala", "Python", "Java"]
-  },
-  {
-    icon: <Cloud className="w-5 h-5" />,
-    title: "Cloud",
-    items: ["GCP", "AWS", "Azure", "OpenShift"]
-  },
-  {
-    icon: <Radio className="w-5 h-5" />,
-    title: "Streaming",
-    items: ["Kafka", "NiFi", "Airflow"]
-  },
-  {
-    icon: <Database className="w-5 h-5" />,
-    title: "Databases",
-    items: ["Oracle", "SQL Server", "MongoDB", "TimescaleDB"]
-  }
-];
-
-const credentials = [
-  {
-    icon: <GraduationCap className="w-6 h-6" />,
-    title: "MSc Computer Engineering",
-    subtitle: "Data Mining Focus"
-  },
-  {
-    icon: <Award className="w-6 h-6" />,
-    title: "Databricks Certified",
-    subtitle: "Data Engineer Professional"
-  },
-  {
-    icon: <Award className="w-6 h-6" />,
-    title: "Soda Certified",
-    subtitle: "Cloud Fundamentals"
-  }
-];
+const categoryIcons: Record<string, React.ReactNode> = {
+  Programming: <Code className="w-5 h-5" />,
+  'Data Stack': <Database className="w-5 h-5" />,
+  Cloud: <Cloud className="w-5 h-5" />,
+  Tech: <Settings className="w-5 h-5" />,
+};
 
 const SkillsSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="skills" className="py-24 bg-card">
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Technical Expertise & Credentials
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Technical Skills
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Full-stack data engineer across all three major cloud platforms.
+          </p>
         </div>
-        
-        {/* Two Column Layout */}
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Core Skills */}
-          <div className="card-soft">
-            <h3 className="font-serif text-2xl font-semibold text-foreground mb-8">
-              Core Skills
-            </h3>
-            
-            <div className="space-y-6">
-              {skillCategories.map((category, index) => (
-                <div 
-                  key={category.title}
-                  className="animate-fade-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-primary">{category.icon}</span>
-                    <span className="font-semibold text-foreground">{category.title}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {category.items.map((item) => (
-                      <span key={item} className="skill-tag">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+
+        {/* Skills Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {skills.map((category, index) => (
+            <div
+              key={category.category}
+              className="card-soft animate-fade-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-primary">
+                  {categoryIcons[category.category] || <Code className="w-5 h-5" />}
+                </span>
+                <h3 className="font-bold text-foreground">{category.category}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span key={skill} className="skill-tag text-xs">
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-          
-          {/* Education & Certifications */}
-          <div className="card-soft">
-            <h3 className="font-serif text-2xl font-semibold text-foreground mb-8">
-              Education & Certifications
-            </h3>
-            
-            <div className="space-y-6">
-              {credentials.map((cred, index) => (
-                <div 
-                  key={cred.title}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-background/50 animate-fade-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    {cred.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">{cred.title}</h4>
-                    <p className="text-muted-foreground text-sm">{cred.subtitle}</p>
-                  </div>
+          ))}
+        </div>
+
+        {/* Certifications */}
+        <div className="max-w-2xl mx-auto">
+          <h3 className="text-xl font-bold text-foreground text-center mb-6">
+            Certifications
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {certifications.map((cert, index) => (
+              <div
+                key={cert.name}
+                className="flex items-center gap-4 p-4 rounded-xl bg-background border border-border animate-fade-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-primary" />
                 </div>
-              ))}
-            </div>
+                <div>
+                  <p className="font-medium text-foreground text-sm">{cert.name}</p>
+                  <p className="text-muted-foreground text-xs font-mono">{cert.date}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

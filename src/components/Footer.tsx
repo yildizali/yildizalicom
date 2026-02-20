@@ -1,45 +1,45 @@
-import { Linkedin, Mail, Globe } from "lucide-react";
+import { Linkedin, Github, Mail } from "lucide-react";
+import { personalInfo } from "@/data/resume";
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-card border-t border-border">
+    <footer className="py-8 bg-background border-t border-border">
       <div className="section-container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Name */}
-          <div className="font-serif text-2xl font-bold text-foreground">
-            Ali Yildiz
-          </div>
-          
-          {/* Social Links */}
-          <div className="flex items-center gap-6">
-            <a 
-              href="https://linkedin.com/in/yildizalicom" 
-              target="_blank" 
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground font-mono">
+            {personalInfo.fullName}
+          </p>
+
+          <div className="flex items-center gap-5">
+            <a
+              href={`https://${personalInfo.linkedin}`}
+              target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-6 h-6" />
+              <Linkedin className="w-5 h-5" />
             </a>
-            <a 
-              href="#" 
+            <a
+              href={`https://${personalInfo.github}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Website"
+              aria-label="GitHub"
             >
-              <Globe className="w-6 h-6" />
+              <Github className="w-5 h-5" />
             </a>
-            <a 
-              href="mailto:" 
+            <a
+              href={`mailto:${personalInfo.email}`}
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Email"
             >
-              <Mail className="w-6 h-6" />
+              <Mail className="w-5 h-5" />
             </a>
           </div>
-          
-          {/* Copyright */}
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} All rights reserved.
+
+          <p className="text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
       </div>
