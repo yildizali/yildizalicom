@@ -136,7 +136,7 @@ export const experiences: Experience[] = [
     techStack: ['Apache NiFi', 'Grafana', 'TimescaleDB', 'IoT', 'Data Integration'],
   },
   {
-    title: 'Data Engineer',
+    title: 'Senior Data Engineer',
     company: 'ING',
     startDate: '2024 January',
     endDate: '2024 November',
@@ -153,7 +153,7 @@ export const experiences: Experience[] = [
     techStack: ['Azure', 'AKS', 'PySpark', 'Kedro', 'Python', 'Airflow'],
   },
   {
-    title: 'Data Engineer',
+    title: 'Senior Data Engineer',
     company: 'FedEx',
     startDate: '2023 April',
     endDate: '2023 December',
@@ -169,7 +169,7 @@ export const experiences: Experience[] = [
     techStack: ['DBT Core', 'PySpark', 'K8s', 'GCP', 'BigQuery', 'GitHub'],
   },
   {
-    title: 'Data Engineer',
+    title: 'Senior Data Engineer',
     company: 'Trustmark',
     startDate: '2023 March',
     endDate: '2023 May',
@@ -251,7 +251,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: 'Senior Data Engineer',
+    title: 'Datawarehouse Developer',
     company: 'IBTech Technology',
     startDate: '2012 September',
     endDate: '2015 October',
@@ -266,7 +266,7 @@ export const experiences: Experience[] = [
     techStack: ['SAP DS', 'MicroStrategy', 'ODI', 'OBI', 'Oracle Exadata'],
   },
   {
-    title: 'Senior Data Engineer',
+    title: 'Software Developer',
     company: 'BIS Çözüm',
     startDate: '2012 April',
     endDate: '2012 September',
