@@ -74,6 +74,10 @@ export const certifications: Certification[] = [
     name: 'Databricks Certified DE Associate',
     date: '12/2023',
   },
+  {
+    name: 'Soda Certified: Cloud Fundamentals',
+    date: '07/2025',
+  },
 ];
 
 export const skills: SkillCategory[] = [
