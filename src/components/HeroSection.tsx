@@ -1,5 +1,5 @@
-import { ArrowDown, Mail } from "lucide-react";
-import { personalInfo } from "@/data/resume";
+import { ArrowDown, Linkedin, ExternalLink } from "lucide-react";
+import profilePhoto from "@/assets/ali_yildiz.jpeg";
 
 const HeroSection = () => {
   return (
@@ -14,46 +14,75 @@ const HeroSection = () => {
       }} />
 
       <div className="section-container relative z-10 py-20">
-        <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="inline-block mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-              {personalInfo.title}
-            </span>
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+
+          {/* Photo */}
+          <div className="flex-shrink-0 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/30 shadow-card">
+              <img
+                src={profilePhoto}
+                alt="Ali Yildiz"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 animate-fade-up leading-tight" style={{ animationDelay: '0.2s' }}>
-            Engineering Data,{' '}
-            <span className="text-gradient">End to End</span>
-          </h1>
+          {/* Content */}
+          <div className="text-center md:text-left">
+            {/* Name */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 animate-fade-up leading-tight" style={{ animationDelay: '0.2s' }}>
+              Ali Yildiz
+            </h1>
 
-          {/* Tagline */}
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            Senior Data Engineer & Cloud Architect — building scalable pipelines across GCP, AWS, and Azure
-          </p>
+            {/* Title */}
+            <p className="text-xl md:text-2xl text-primary font-semibold mb-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+              Senior Data and Platform Engineer
+            </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <a
-              href="#experience"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              <ArrowDown className="w-4 h-4" />
-              View Experience
-            </a>
-            <a
-              href="#contact"
-              className="btn-outline inline-flex items-center gap-2"
-            >
-              <Mail className="w-4 h-4" />
-              Get in Touch
-            </a>
-          </div>
+            {/* Company */}
+            <div className="mb-6 animate-fade-up" style={{ animationDelay: '0.35s' }}>
+              <a
+                href="https://www.xebia.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <span className="text-base">at</span>
+                <span className="text-foreground font-semibold text-base">Xebia B.V.</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
 
-          {/* Name */}
-          <div className="mt-16 animate-fade-up" style={{ animationDelay: '0.5s' }}>
-            <p className="text-sm text-muted-foreground font-mono">{personalInfo.fullName}</p>
+            {/* Headline */}
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground/80 mb-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+              Engineering Data,{' '}
+              <span className="text-gradient">End to End</span>
+            </h2>
+
+            {/* Tagline */}
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl animate-fade-up" style={{ animationDelay: '0.45s' }}>
+              Building scalable data pipelines and cloud architectures across GCP, AWS, and Azure
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start animate-fade-up" style={{ animationDelay: '0.5s' }}>
+              <a
+                href="#experience"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                <ArrowDown className="w-4 h-4" />
+                View Experience
+              </a>
+              <a
+                href="https://www.linkedin.com/in/yildizalicom"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline inline-flex items-center gap-2"
+              >
+                <Linkedin className="w-4 h-4" />
+                Connect
+              </a>
+            </div>
           </div>
         </div>
       </div>
