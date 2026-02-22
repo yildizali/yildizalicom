@@ -104,7 +104,7 @@ export const languages: Language[] = [
 export const experiences: Experience[] = [
   {
     title: 'Data Platform Engineer / Senior Data Engineer',
-    company: 'NIBC',
+    company: 'NIBC (via Xebia)',
     startDate: '2025 March',
     endDate: 'Present',
     description:
@@ -120,7 +120,7 @@ export const experiences: Experience[] = [
   },
   {
     title: 'Senior Data Engineer',
-    company: 'Irish Rail - Iarnród Éireann',
+    company: 'Irish Rail - Iarnród Éireann (via Xebia)',
     startDate: '2024 December',
     endDate: '2025 February',
     description:
@@ -137,7 +137,7 @@ export const experiences: Experience[] = [
   },
   {
     title: 'Senior Data Engineer',
-    company: 'ING',
+    company: 'ING (via Xebia)',
     startDate: '2024 January',
     endDate: '2024 November',
     description:
@@ -154,7 +154,7 @@ export const experiences: Experience[] = [
   },
   {
     title: 'Senior Data Engineer',
-    company: 'FedEx',
+    company: 'FedEx (via Xebia)',
     startDate: '2023 April',
     endDate: '2023 December',
     description:
@@ -170,7 +170,7 @@ export const experiences: Experience[] = [
   },
   {
     title: 'Senior Data Engineer',
-    company: 'Trustmark',
+    company: 'Trustmark (via Xebia)',
     startDate: '2023 March',
     endDate: '2023 May',
     description:
@@ -186,7 +186,7 @@ export const experiences: Experience[] = [
   },
   {
     title: 'Senior Data Engineer',
-    company: 'International Flavors & Fragrances Inc.',
+    company: 'International Flavors & Fragrances Inc. (via Xebia)',
     startDate: '2022 November',
     endDate: '2023 February',
     description:
