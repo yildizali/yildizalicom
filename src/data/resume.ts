@@ -103,6 +103,22 @@ export const languages: Language[] = [
 
 export const experiences: Experience[] = [
   {
+    title: 'Data Platform Engineer / Senior Data Engineer',
+    company: 'NIBC',
+    startDate: '2025 March',
+    endDate: 'Present',
+    description:
+      'Worked on developing new features for the cloud data platform and strengthening the system from a security perspective.',
+    bullets: [
+      'Implemented Soda Core and Soda Cloud as the data quality solution for the platform.',
+      'Helped expand the data platform\'s architectural design through several Architectural Decision Records (ADRs).',
+      'Deployed and maintained infrastructure on Azure using Terraform, including Azure Data Factory, dbt Cloud, Function Apps, Databricks, and networking components.',
+      'Developed a set of best practices and standards for proper platform usage.',
+      'Actively contributed as an individual contributor while also guiding and supporting fellow Data Engineers in delivering work in accordance with established standards.',
+    ],
+    techStack: ['Azure', 'Terraform', 'Databricks', 'dbt Cloud', 'Soda Core', 'Azure Data Factory'],
+  },
+  {
     title: 'Senior Data Engineer',
     company: 'Irish Rail - Iarnród Éireann',
     startDate: '2024 December',
@@ -169,7 +185,7 @@ export const experiences: Experience[] = [
     techStack: ['GCP', 'BigQuery', 'DBT Cloud', 'Preset.io', 'GitHub'],
   },
   {
-    title: 'Data Engineer',
+    title: 'Senior Data Engineer',
     company: 'International Flavors & Fragrances Inc.',
     startDate: '2022 November',
     endDate: '2023 February',
@@ -183,7 +199,7 @@ export const experiences: Experience[] = [
     techStack: ['AWS', 'Sagemaker', 'MLOps', 'Terraform', 'Jenkins'],
   },
   {
-    title: 'Big Data Engineer / Cloud Data Architect',
+    title: 'Senior Data Engineer',
     company: 'Coca Cola İçecek',
     startDate: '2021 August',
     endDate: '2022 November',
@@ -207,7 +223,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: 'Expert Big Data Engineer',
+    title: 'Senior Data Engineer',
     company: 'GarantiBBVA Technology',
     startDate: '2015 November',
     endDate: '2021 August',
@@ -235,7 +251,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: 'Senior Software Specialist',
+    title: 'Senior Data Engineer',
     company: 'IBTech Technology',
     startDate: '2012 September',
     endDate: '2015 October',
@@ -250,7 +266,7 @@ export const experiences: Experience[] = [
     techStack: ['SAP DS', 'MicroStrategy', 'ODI', 'OBI', 'Oracle Exadata'],
   },
   {
-    title: 'Software Developer',
+    title: 'Senior Data Engineer',
     company: 'BIS Çözüm',
     startDate: '2012 April',
     endDate: '2012 September',
