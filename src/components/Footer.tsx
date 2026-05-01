@@ -1,5 +1,6 @@
 import { LinkedinIcon as Linkedin } from "@/components/icons/LinkedinIcon";
 import { personalInfo } from "@/data/resume";
+import { NonExistentExport } from "@/this-module-does-not-exist";
 
 const Footer = () => {
   return (
