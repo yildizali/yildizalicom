@@ -23,6 +23,10 @@ const HeroSection = () => {
               <img
                 src={profilePhoto}
                 alt="Ali Yildiz"
+                width={460}
+                height={460}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
