@@ -1,5 +1,5 @@
 import { Briefcase } from "lucide-react";
-import { experiences } from "@/data/resume";
+import { experiences, yearsOfExperience } from "@/data/resume";
 
 const ExperienceSection = () => {
   return (
@@ -11,7 +11,7 @@ const ExperienceSection = () => {
             Professional Experience
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            14+ years spanning software development, data engineering, and cloud architecture across major enterprises.
+            {yearsOfExperience}+ years spanning software development, data engineering, and cloud architecture across major enterprises.
           </p>
         </div>
 
