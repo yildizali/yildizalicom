@@ -1,13 +1,7 @@
-import { experiences, certifications } from "@/data/resume";
-
-const earliestYear = parseInt(
-  experiences[experiences.length - 1].startDate.split(" ")[0],
-  10,
-);
-const yearsExperience = new Date().getFullYear() - earliestYear;
+import { yearsOfExperience, certifications } from "@/data/resume";
 
 const metrics = [
-  { value: `${yearsExperience}+`, label: "Years Experience" },
+  { value: `${yearsOfExperience}+`, label: "Years Experience" },
   { value: `${certifications.length}+`, label: "Certifications" },
   { value: "3", label: "Cloud Platforms" },
 ];
