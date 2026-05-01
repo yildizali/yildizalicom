@@ -78,6 +78,7 @@ const HeroSection = () => {
                 href="https://www.linkedin.com/in/yildizalicom"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Connect with Ali Yildiz on LinkedIn"
                 className="btn-outline inline-flex items-center gap-2"
               >
                 <Linkedin className="w-4 h-4" />
