@@ -67,16 +67,60 @@ export const education: Education[] = [
 
 export const certifications: Certification[] = [
   {
-    name: 'Databricks Certified DE Professional',
+    name: 'Soda Certified: Cloud Fundamentals',
+    date: '07/2025',
+  },
+  {
+    name: 'Databricks Certified Data Engineer Professional',
     date: '12/2024',
   },
   {
-    name: 'Databricks Certified DE Associate',
+    name: 'Databricks Certified Data Engineer Associate',
     date: '12/2023',
   },
   {
-    name: 'Soda Certified: Cloud Fundamentals',
-    date: '07/2025',
+    name: 'Fundamentals of the Databricks Lakehouse Platform Accreditation',
+    date: '11/2023',
+  },
+  {
+    name: 'Building Batch Data Pipelines on Google Cloud',
+    date: '06/2022',
+  },
+  {
+    name: 'Google Cloud Big Data and Machine Learning Fundamentals',
+    date: '04/2022',
+  },
+  {
+    name: 'Baseline: Data, ML, AI',
+    date: '12/2021',
+  },
+  {
+    name: 'Engineer Data in Google Cloud',
+    date: '11/2021',
+  },
+  {
+    name: 'Data Engineering',
+    date: '11/2021',
+  },
+  {
+    name: 'Build and Optimize Data Warehouses with BigQuery',
+    date: '10/2021',
+  },
+  {
+    name: 'Developer Training for Spark & Hadoop',
+    date: '02/2017',
+  },
+  {
+    name: 'Oracle Database 11g: Advanced PL/SQL Ed 2 PRV',
+    date: '09/2013',
+  },
+  {
+    name: 'Oracle 11g XML Fundamentals Training',
+    date: '03/2013',
+  },
+  {
+    name: 'Oracle Database 11g: SQL Tuning Workshop Ed 2',
+    date: '12/2012',
   },
 ];
 
