@@ -6,10 +6,12 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": ["*"],
       "groupName": "all dependencies",
       "groupSlug": "all",
-      "automerge": true
+      "automerge": true,
+      "matchPackageNames": [
+        "*"
+      ]
     }
   ],
   "separateMajorMinor": false,
