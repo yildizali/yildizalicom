@@ -1,12 +1,15 @@
-interface Metric {
-  value: string;
-  label: string;
-}
+import { experiences, certifications } from "@/data/resume";
 
-const metrics: Metric[] = [
-  { value: "14+", label: "Years Experience" },
-  { value: "15+", label: "Certifications" },
-  { value: "3", label: "Cloud Platforms" }
+const earliestYear = parseInt(
+  experiences[experiences.length - 1].startDate.split(" ")[0],
+  10,
+);
+const yearsExperience = new Date().getFullYear() - earliestYear;
+
+const metrics = [
+  { value: `${yearsExperience}+`, label: "Years Experience" },
+  { value: `${certifications.length}+`, label: "Certifications" },
+  { value: "3", label: "Cloud Platforms" },
 ];
 
 const MetricsSection = () => {
@@ -15,7 +18,7 @@ const MetricsSection = () => {
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {metrics.map((metric, index) => (
-            <div 
+            <div
               key={metric.label}
               className="text-center animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}

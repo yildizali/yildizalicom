@@ -11,7 +11,7 @@ const ExperienceSection = () => {
             Professional Experience
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            13+ years spanning software development, data engineering, and cloud architecture across major enterprises.
+            14+ years spanning software development, data engineering, and cloud architecture across major enterprises.
           </p>
         </div>
 
