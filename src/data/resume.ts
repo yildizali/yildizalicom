@@ -328,3 +328,11 @@ export const experiences: Experience[] = [
     techStack: ['C#', 'ASP.NET', 'SQL Server', 'T-SQL'],
   },
 ];
+
+const earliestExperienceYear = parseInt(
+  experiences[experiences.length - 1].startDate.split(' ')[0],
+  10,
+);
+
+export const yearsOfExperience =
+  new Date().getFullYear() - earliestExperienceYear;
