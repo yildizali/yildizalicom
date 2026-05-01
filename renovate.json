@@ -8,10 +8,15 @@
     {
       "matchPackagePatterns": ["*"],
       "groupName": "all dependencies",
-      "groupSlug": "all"
+      "groupSlug": "all",
+      "automerge": true
     }
   ],
   "separateMajorMinor": false,
   "prHourlyLimit": 0,
-  "prConcurrentLimit": 1
+  "prConcurrentLimit": 1,
+  "automerge": true,
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "platformAutomerge": true
 }

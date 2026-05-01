@@ -1,4 +1,4 @@
-import { Linkedin } from "lucide-react";
+import { LinkedinIcon as Linkedin } from "@/components/icons/LinkedinIcon";
 import { personalInfo } from "@/data/resume";
 
 const Footer = () => {

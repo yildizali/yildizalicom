@@ -1,4 +1,5 @@
-import { ArrowDown, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowDown, ExternalLink } from "lucide-react";
+import { LinkedinIcon as Linkedin } from "@/components/icons/LinkedinIcon";
 import profilePhoto from "@/assets/ali_yildiz.jpeg";
 
 const HeroSection = () => {
