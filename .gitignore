@@ -25,6 +25,7 @@ dist-ssr
 
 # Claude Code
 .claude/
+CLAUDE.md
 
 # Environment variables
 .env
