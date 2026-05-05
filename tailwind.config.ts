@@ -92,11 +92,6 @@ export default {
         "fade-up": "fade-up 0.6s ease-out forwards",
         "fade-in": "fade-in 0.8s ease-out forwards",
       },
-      boxShadow: {
-        soft: "0 4px 20px -4px hsl(0 0% 0% / 0.3)",
-        card: "0 8px 30px -8px hsl(0 0% 0% / 0.4)",
-        button: "0 4px 14px -3px hsl(270 60% 62% / 0.4)",
-      },
     },
   },
   plugins: [tailwindcssAnimate],

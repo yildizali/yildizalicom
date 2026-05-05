@@ -1,55 +1,93 @@
-import { GraduationCap } from "lucide-react";
-import { education, languages } from "@/data/resume";
+import { ExternalLink } from "lucide-react";
+import { certifications, education, languages, personalInfo } from "@/data/resume";
+
+const TOP_CERTS = 5;
 
 const EducationSection = () => {
+  const featured = certifications.slice(0, TOP_CERTS);
+  const remainder = certifications.length - featured.length;
+
   return (
-    <section id="education" className="py-24 bg-background">
-      <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Education
-          </h2>
-        </div>
+    <section
+      id="education"
+      aria-label="Education and credentials"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+    >
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-950/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">
+          Education
+        </h2>
+      </div>
 
-        <div className="max-w-3xl mx-auto">
-          {/* Education entries */}
-          <div className="space-y-6 mb-12">
-            {education.map((edu, index) => (
-              <div
-                key={`${edu.institution}-${edu.startYear}`}
-                className="flex items-start gap-4 p-5 rounded-xl bg-card border border-border animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <GraduationCap className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 className="font-bold text-foreground">
-                      {edu.degree} — {edu.field}
-                    </h3>
-                    <span className="text-sm text-muted-foreground font-mono">
-                      {edu.startYear}–{edu.endYear}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mt-1">{edu.institution}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Languages */}
-          <div className="text-center">
-            <h3 className="text-lg font-bold text-foreground mb-4">Languages</h3>
-            <div className="flex justify-center gap-4 flex-wrap">
-              {languages.map((lang) => (
-                <span key={lang.language} className="skill-tag">
-                  {lang.language} <span className="text-muted-foreground ml-1">({lang.proficiency})</span>
-                </span>
-              ))}
+      <ul className="space-y-3">
+        {education.map((edu) => (
+          <li
+            key={`${edu.institution}-${edu.startYear}`}
+            className="grid gap-1 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6"
+          >
+            <div>
+              <span className="text-slate-200">
+                {edu.degree} · {edu.field}
+              </span>
+              <span className="block text-sm text-slate-500">{edu.institution}</span>
             </div>
-          </div>
-        </div>
+            <span className="font-mono text-xs uppercase tracking-wide text-slate-500">
+              {edu.startYear}–{edu.endYear}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-12">
+        <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">
+          Certifications
+        </h3>
+        <ul className="mt-4 space-y-2">
+          {featured.map((cert) => (
+            <li
+              key={cert.name}
+              className="grid gap-1 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6"
+            >
+              <span className="text-sm text-slate-300">{cert.name}</span>
+              <span className="font-mono text-xs text-slate-500">{cert.date}</span>
+            </li>
+          ))}
+        </ul>
+        {remainder > 0 && (
+          <a
+            href={`https://www.${personalInfo.linkedin}/details/certifications/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-4 inline-flex items-center text-sm font-medium text-slate-300 transition-colors hover:text-teal-300 focus-visible:text-teal-300"
+          >
+            View {remainder} more on LinkedIn
+            <ExternalLink
+              aria-hidden="true"
+              className="ml-1 h-4 w-4 shrink-0 transition motion-reduce:transition-none group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-focus-visible:-translate-y-0.5 group-focus-visible:translate-x-0.5"
+            />
+          </a>
+        )}
+      </div>
+
+      <div className="mt-12">
+        <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">
+          Languages
+        </h3>
+        <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-300">
+          {languages.map((lang, idx) => (
+            <li key={lang.language} className="flex items-center gap-2">
+              <span>
+                {lang.language}{" "}
+                <span className="text-slate-500">({lang.proficiency})</span>
+              </span>
+              {idx < languages.length - 1 && (
+                <span aria-hidden="true" className="text-slate-700">
+                  ·
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

@@ -1,84 +1,84 @@
-import { Briefcase } from "lucide-react";
-import { experiences, yearsOfExperience } from "@/data/resume";
+import { ExternalLink } from "lucide-react";
+import { experiences } from "@/data/resume";
+
+const yearOf = (date: string) => {
+  if (date.toLowerCase() === "present") return "Present";
+  return date.split(" ")[0];
+};
+
+const formatRange = (start: string, end: string) => {
+  const s = yearOf(start);
+  const e = yearOf(end);
+  return s === e ? s : `${s} — ${e}`;
+};
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 bg-background">
-      <div className="section-container">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Professional Experience
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {yearsOfExperience}+ years spanning software development, data engineering, and cloud architecture across major enterprises.
-          </p>
-        </div>
+    <section
+      id="experience"
+      aria-label="Work experience"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+    >
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-950/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">
+          Experience
+        </h2>
+      </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-border" />
+      <ol className="group/list">
+        {experiences.map((exp) => (
+          <li key={`${exp.company}-${exp.startDate}`} className="mb-12">
+            <div
+              className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
+            >
+              <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/40 lg:group-hover:shadow-[inset_0_1px_0_0_rgb(148_163_184/0.1)]" />
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div
-                key={`${exp.company}-${exp.startDate}`}
-                className="relative pl-12 md:pl-20 animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+              <header
+                className="z-10 mb-2 mt-1 text-xs font-mono uppercase tracking-wide text-slate-500 sm:col-span-2"
+                aria-label={formatRange(exp.startDate, exp.endDate)}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-2 md:left-6 top-1 w-5 h-5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                </div>
+                {formatRange(exp.startDate, exp.endDate)}
+              </header>
 
-                {/* Card */}
-                <div className="card-soft">
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground">
-                        {exp.title}
-                      </h3>
-                      <p className="text-primary font-medium flex items-center gap-2">
-                        <Briefcase className="w-4 h-4" />
-                        {exp.company}
-                      </p>
-                    </div>
-                    <span className="text-sm text-muted-foreground font-mono whitespace-nowrap">
-                      {exp.startDate} — {exp.endDate}
+              <div className="z-10 sm:col-span-6">
+                <h3 className="font-medium leading-snug text-slate-200">
+                  <span>
+                    <span className="inline-flex items-baseline font-medium leading-tight text-slate-200 group-hover:text-teal-300 group-focus-visible:text-teal-300">
+                      <span>
+                        {exp.title}{" "}
+                        <span className="inline-block">
+                          ·{" "}
+                          <span className="inline-block">
+                            {exp.company}
+                            <ExternalLink
+                              aria-hidden="true"
+                              className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px opacity-0 transition motion-reduce:transition-none group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:opacity-100 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:opacity-100"
+                            />
+                          </span>
+                        </span>
+                      </span>
                     </span>
-                  </div>
+                  </span>
+                </h3>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {exp.description}
-                  </p>
+                <p className="mt-2 text-sm leading-normal text-slate-400">
+                  {exp.description}
+                </p>
 
-                  {/* Bullets */}
-                  <ul className="space-y-1 mb-4">
-                    {exp.bullets.slice(0, 3).map((bullet, i) => (
-                      <li key={i} className="text-sm text-muted-foreground/80 flex items-start gap-2">
-                        <span className="text-primary mt-1.5 text-xs">&#9679;</span>
-                        {bullet}
+                {exp.techStack.length > 0 && (
+                  <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+                    {exp.techStack.map((tech) => (
+                      <li key={tech} className="mr-1.5 mt-2">
+                        <span className="tech-chip">{tech}</span>
                       </li>
                     ))}
                   </ul>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.techStack.map((tech) => (
-                      <span key={tech} className="tech-pill">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                )}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
+            </div>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 };
