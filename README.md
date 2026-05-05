@@ -177,11 +177,12 @@ Trade-off accepted: a major-version dep bump that *passes* CI gets merged withou
 ```bash
 # Node 20.19+ or 22.12+ (Vite v8 requirement)
 npm ci
-npm run dev      # http://localhost:8080
-npm run build    # outputs to dist/
-npm run preview  # serve dist/
+npm run dev        # http://localhost:8080
+npm run build      # outputs to dist/
+npm run preview    # serve dist/ at http://localhost:4173
 npm run lint
-npx tsc --noEmit
+npm run typecheck  # tsc --noEmit
+npm run check      # lint + typecheck + build — mirrors CI, use before opening a PR
 ```
 
 Resume content lives in [`src/data/resume.ts`](src/data/resume.ts). To update what's rendered on the page, edit that file — the components consume it directly.
