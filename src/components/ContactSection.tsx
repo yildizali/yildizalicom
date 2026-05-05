@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { LinkedinIcon as Linkedin } from "@/components/icons/LinkedinIcon";
 import { personalInfo } from "@/data/resume";
 
 const ContactSection = () => {
@@ -16,15 +16,18 @@ const ContactSection = () => {
 
       <p className="text-slate-400">
         Open to interesting conversations about data platforms, cloud
-        architecture, and pipelines at scale.
+        architecture, and pipelines at scale. The best way to reach me is
+        through LinkedIn.
       </p>
 
       <a
-        href={`mailto:${personalInfo.email}`}
+        href={`https://www.${personalInfo.linkedin}`}
+        target="_blank"
+        rel="noopener noreferrer"
         className="btn-outline mt-6"
       >
-        Say hello
-        <ExternalLink aria-hidden="true" className="h-4 w-4" />
+        <Linkedin aria-hidden="true" className="h-4 w-4" />
+        Connect on LinkedIn
       </a>
     </section>
   );

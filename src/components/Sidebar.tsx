@@ -1,8 +1,8 @@
-import { Mail } from "lucide-react";
 import { LinkedinIcon as Linkedin } from "@/components/icons/LinkedinIcon";
 import { GithubIcon as Github } from "@/components/icons/GithubIcon";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { personalInfo } from "@/data/resume";
+import profilePhoto from "@/assets/ali_yildiz.jpeg";
 
 const SECTIONS = [
   { id: "about", label: "About" },
@@ -18,6 +18,15 @@ const Sidebar = () => {
   return (
     <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
+        <img
+          src={profilePhoto}
+          alt="Ali Yildiz"
+          width={460}
+          height={460}
+          fetchPriority="high"
+          decoding="async"
+          className="mb-6 h-24 w-24 rounded-full object-cover ring-1 ring-slate-700"
+        />
         <h1 className="text-4xl font-bold tracking-tight text-slate-100 sm:text-5xl">
           Ali Yildiz
         </h1>
@@ -85,15 +94,6 @@ const Sidebar = () => {
             className="text-slate-500 transition-colors hover:text-slate-200 focus-visible:text-slate-200"
           >
             <Linkedin className="h-6 w-6" />
-          </a>
-        </li>
-        <li>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            aria-label="Email Ali"
-            className="text-slate-500 transition-colors hover:text-slate-200 focus-visible:text-slate-200"
-          >
-            <Mail className="h-6 w-6" />
           </a>
         </li>
       </ul>
