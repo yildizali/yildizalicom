@@ -1,59 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
 @layer base {
   :root {
-    --background: 240 15% 9%;
-    --foreground: 240 10% 93%;
+    --background: 240 10% 4%;
+    --foreground: 240 5% 65%;
 
-    --card: 240 14% 12%;
-    --card-foreground: 240 10% 93%;
+    --card: 240 4% 10%;
+    --card-foreground: 240 5% 84%;
 
-    --popover: 240 14% 12%;
-    --popover-foreground: 240 10% 93%;
+    --popover: 240 4% 10%;
+    --popover-foreground: 240 5% 84%;
 
-    --primary: 270 60% 62%;
-    --primary-foreground: 240 15% 9%;
+    --primary: 43 96% 56%;
+    --primary-foreground: 240 10% 4%;
 
-    --secondary: 240 12% 16%;
-    --secondary-foreground: 240 10% 93%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 240 5% 84%;
 
-    --muted: 240 12% 16%;
-    --muted-foreground: 240 10% 60%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 4% 46%;
 
-    --accent: 270 40% 20%;
-    --accent-foreground: 240 10% 93%;
+    --accent: 43 96% 56%;
+    --accent-foreground: 240 10% 4%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 240 12% 18%;
-    --input: 240 12% 18%;
-    --ring: 270 60% 62%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 43 96% 56%;
 
-    --radius: 0.75rem;
-
-    --gradient-hero: linear-gradient(135deg, hsl(240 15% 9%) 0%, hsl(270 30% 12%) 50%, hsl(240 15% 9%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(240 14% 13%) 0%, hsl(240 14% 11%) 100%);
-    --gradient-purple: linear-gradient(135deg, hsl(270 60% 62%) 0%, hsl(280 50% 50%) 100%);
-
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
-    --shadow-button: 0 4px 14px -3px hsl(270 60% 62% / 0.4);
+    --radius: 0.5rem;
 
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    --sidebar-background: 240 15% 9%;
-    --sidebar-foreground: 240 10% 93%;
-    --sidebar-primary: 270 60% 62%;
-    --sidebar-primary-foreground: 240 15% 9%;
-    --sidebar-accent: 240 12% 16%;
-    --sidebar-accent-foreground: 240 10% 93%;
-    --sidebar-border: 240 12% 18%;
-    --sidebar-ring: 270 60% 62%;
+    --sidebar-background: 240 10% 4%;
+    --sidebar-foreground: 240 5% 84%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 84%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 43 96% 56%;
   }
 }
 
@@ -73,45 +63,28 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
-    @apply font-bold tracking-tight;
+    @apply font-semibold tracking-tight text-zinc-100;
+  }
+
+  ::selection {
+    @apply bg-amber-400/20 text-amber-200;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium
-           transition-all duration-300 hover:opacity-90;
-    box-shadow: var(--shadow-button);
-  }
-
   .btn-outline {
-    @apply bg-transparent border border-primary/50 text-primary px-6 py-3 rounded-lg font-medium
-           transition-all duration-300 hover:bg-primary/10;
+    @apply inline-flex items-center gap-2 rounded-md border border-amber-400/40 px-5 py-3 text-sm font-medium text-amber-300
+           transition-colors duration-200 hover:bg-amber-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60;
   }
 
-  .card-soft {
-    background: var(--gradient-card);
-    box-shadow: var(--shadow-card);
-    @apply rounded-2xl p-6 border border-border;
+  .tech-chip {
+    @apply inline-flex items-center rounded-full bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-300
+           ring-1 ring-inset ring-amber-400/20;
   }
 
-  .section-container {
-    @apply max-w-6xl mx-auto px-6;
-  }
-
-  .text-gradient {
-    background: var(--gradient-purple);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .tech-pill {
-    @apply px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20;
-  }
-
-  .skill-tag {
-    @apply px-4 py-2 rounded-full text-sm font-medium bg-secondary text-foreground border border-border;
+  .skill-chip {
+    @apply inline-flex items-center rounded-full bg-zinc-800/60 px-3 py-1 text-xs font-medium text-zinc-300
+           ring-1 ring-inset ring-zinc-700;
   }
 }
 
@@ -145,6 +118,15 @@
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 }
