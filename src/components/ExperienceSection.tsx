@@ -1,82 +1,68 @@
-import { Briefcase } from "lucide-react";
 import { experiences, yearsOfExperience } from "@/data/resume";
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 bg-background">
-      <div className="section-container">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Professional Experience
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {yearsOfExperience}+ years spanning software development, data engineering, and cloud architecture across major enterprises.
-          </p>
+    <section
+      id="experience"
+      className="px-6 md:px-12 lg:px-16 py-20 md:py-28 border-t border-border"
+    >
+      <div className="max-w-4xl">
+        <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+          04 &mdash; Career
         </div>
+        <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-3">
+          The long arc, in chapters.
+        </h2>
+        <p className="text-base text-muted-foreground mb-14 max-w-xl">
+          {yearsOfExperience}+ years across software, data engineering, and platform
+          architecture &mdash; from core banking to cloud-native ML.
+        </p>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-border" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div
-                key={`${exp.company}-${exp.startDate}`}
-                className="relative pl-12 md:pl-20 animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-2 md:left-6 top-1 w-5 h-5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
+        <div>
+          {experiences.map((exp, index) => (
+            <article
+              key={`${exp.company}-${exp.startDate}`}
+              className="grid grid-cols-1 sm:grid-cols-[110px,1fr] gap-3 sm:gap-8 py-8 border-t border-border first:border-t-2 first:border-foreground animate-fade-up"
+              style={{ animationDelay: `${Math.min(index * 0.05, 0.25)}s` }}
+            >
+              <div>
+                <div className="font-mono text-xs tabular-nums text-muted-foreground leading-relaxed">
+                  {exp.startDate}
                 </div>
-
-                {/* Card */}
-                <div className="card-soft">
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground">
-                        {exp.title}
-                      </h3>
-                      <p className="text-primary font-medium flex items-center gap-2">
-                        <Briefcase className="w-4 h-4" />
-                        {exp.company}
-                      </p>
-                    </div>
-                    <span className="text-sm text-muted-foreground font-mono whitespace-nowrap">
-                      {exp.startDate} — {exp.endDate}
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {exp.description}
-                  </p>
-
-                  {/* Bullets */}
-                  <ul className="space-y-1 mb-4">
-                    {exp.bullets.slice(0, 3).map((bullet, i) => (
-                      <li key={i} className="text-sm text-muted-foreground/80 flex items-start gap-2">
-                        <span className="text-primary mt-1.5 text-xs">&#9679;</span>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.techStack.map((tech) => (
-                      <span key={tech} className="tech-pill">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                <div className="font-mono text-xs tabular-nums text-muted-foreground/70">
+                  &darr; {exp.endDate}
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div>
+                <h3 className="font-serif text-xl md:text-2xl text-foreground leading-tight mb-1">
+                  {exp.title}
+                </h3>
+                <p className="text-sm text-accent-ink font-medium mb-4">{exp.company}</p>
+
+                <p className="text-sm leading-relaxed text-foreground/80 mb-4">
+                  {exp.description}
+                </p>
+
+                <ul className="space-y-1.5 mb-5">
+                  {exp.bullets.slice(0, 3).map((bullet, i) => (
+                    <li key={i} className="text-sm text-muted-foreground flex gap-3">
+                      <span className="text-accent-ink mt-2.5 flex-shrink-0 w-3 h-px bg-current" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {exp.techStack.map((tech) => (
+                    <span key={tech} className="tech-pill">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

@@ -1,74 +1,67 @@
-import { Code, Cloud, Database, Settings, Award } from "lucide-react";
 import { skills, certifications } from "@/data/resume";
-
-const categoryIcons: Record<string, React.ReactNode> = {
-  Programming: <Code className="w-5 h-5" />,
-  'Data Stack': <Database className="w-5 h-5" />,
-  Cloud: <Cloud className="w-5 h-5" />,
-  Tech: <Settings className="w-5 h-5" />,
-};
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="py-24 bg-card">
-      <div className="section-container">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Technical Skills
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Full-stack data engineer across all three major cloud platforms.
-          </p>
+    <section
+      id="skills"
+      className="px-6 md:px-12 lg:px-16 py-20 md:py-28 border-t border-border"
+    >
+      <div className="max-w-4xl">
+        <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+          05 &mdash; Stack
         </div>
+        <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12">
+          Tools of the trade.
+        </h2>
 
-        {/* Skills Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10 mb-20">
           {skills.map((category, index) => (
             <div
               key={category.category}
-              className="card-soft animate-fade-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="animate-fade-up"
+              style={{ animationDelay: `${index * 0.06}s` }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-primary">
-                  {categoryIcons[category.category] || <Code className="w-5 h-5" />}
-                </span>
-                <h3 className="font-bold text-foreground">{category.category}</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span key={skill} className="skill-tag text-xs">
-                    {skill}
+              <h3 className="font-serif italic text-lg text-foreground mb-3">
+                {category.category}
+              </h3>
+              <p className="font-mono text-sm leading-relaxed text-muted-foreground">
+                {category.skills.map((s, i) => (
+                  <span key={s}>
+                    {s}
+                    {i < category.skills.length - 1 && (
+                      <span className="text-foreground/30 mx-1.5">&middot;</span>
+                    )}
                   </span>
                 ))}
-              </div>
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Certifications */}
-        <div className="max-w-2xl mx-auto">
-          <h3 className="text-xl font-bold text-foreground text-center mb-6">
-            Certifications
-          </h3>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {certifications.map((cert, index) => (
-              <div
-                key={cert.name}
-                className="flex items-center gap-4 p-4 rounded-xl bg-background border border-border animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Award className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="font-medium text-foreground text-sm">{cert.name}</p>
-                  <p className="text-muted-foreground text-xs font-mono">{cert.date}</p>
-                </div>
-              </div>
-            ))}
+        <div>
+          <div className="flex items-baseline justify-between mb-6">
+            <h3 className="font-serif italic text-lg text-foreground">Certifications</h3>
+            <span className="font-mono text-xs text-muted-foreground tabular-nums">
+              {String(certifications.length).padStart(2, "0")} total
+            </span>
           </div>
+          <ol className="border-t border-border">
+            {certifications.map((cert, index) => (
+              <li
+                key={cert.name}
+                className="grid grid-cols-[36px,1fr,auto] gap-4 py-3 items-baseline border-b border-border animate-fade-up"
+                style={{ animationDelay: `${Math.min(index * 0.03, 0.25)}s` }}
+              >
+                <span className="font-mono text-xs tabular-nums text-muted-foreground/70">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="text-sm text-foreground/90">{cert.name}</span>
+                <span className="font-mono text-xs tabular-nums text-muted-foreground">
+                  {cert.date}
+                </span>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

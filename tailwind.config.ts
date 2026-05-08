@@ -61,6 +61,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
@@ -93,9 +94,9 @@ export default {
         "fade-in": "fade-in 0.8s ease-out forwards",
       },
       boxShadow: {
-        soft: "0 4px 20px -4px hsl(0 0% 0% / 0.3)",
-        card: "0 8px 30px -8px hsl(0 0% 0% / 0.4)",
-        button: "0 4px 14px -3px hsl(270 60% 62% / 0.4)",
+        soft: "0 1px 0 0 hsl(var(--border))",
+        card: "0 1px 0 0 hsl(var(--border))",
+        button: "0 2px 8px -2px hsl(156 50% 22% / 0.25)",
       },
     },
   },

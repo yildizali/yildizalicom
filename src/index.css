@@ -1,59 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
 @layer base {
   :root {
-    --background: 240 15% 9%;
-    --foreground: 240 10% 93%;
+    /* Editorial: warm paper, ink, forest accent */
+    --background: 42 30% 95%;
+    --foreground: 30 12% 12%;
 
-    --card: 240 14% 12%;
-    --card-foreground: 240 10% 93%;
+    --card: 42 25% 92%;
+    --card-foreground: 30 12% 12%;
 
-    --popover: 240 14% 12%;
-    --popover-foreground: 240 10% 93%;
+    --popover: 42 30% 95%;
+    --popover-foreground: 30 12% 12%;
 
-    --primary: 270 60% 62%;
-    --primary-foreground: 240 15% 9%;
+    --primary: 156 50% 22%;
+    --primary-foreground: 42 30% 95%;
 
-    --secondary: 240 12% 16%;
-    --secondary-foreground: 240 10% 93%;
+    --secondary: 42 22% 88%;
+    --secondary-foreground: 30 12% 12%;
 
-    --muted: 240 12% 16%;
-    --muted-foreground: 240 10% 60%;
+    --muted: 42 20% 90%;
+    --muted-foreground: 30 8% 38%;
 
-    --accent: 270 40% 20%;
-    --accent-foreground: 240 10% 93%;
+    --accent: 156 30% 88%;
+    --accent-foreground: 156 50% 22%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 42 30% 95%;
 
-    --border: 240 12% 18%;
-    --input: 240 12% 18%;
-    --ring: 270 60% 62%;
+    --border: 30 18% 82%;
+    --input: 30 18% 82%;
+    --ring: 156 50% 22%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(240 15% 9%) 0%, hsl(270 30% 12%) 50%, hsl(240 15% 9%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(240 14% 13%) 0%, hsl(240 14% 11%) 100%);
-    --gradient-purple: linear-gradient(135deg, hsl(270 60% 62%) 0%, hsl(280 50% 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(42 30% 95%) 0%, hsl(42 30% 93%) 100%);
+    --gradient-card: hsl(42 25% 92%);
 
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
-    --shadow-button: 0 4px 14px -3px hsl(270 60% 62% / 0.4);
+    --shadow-soft: 0 1px 0 0 hsl(var(--border));
+    --shadow-card: 0 1px 0 0 hsl(var(--border));
+    --shadow-button: 0 2px 8px -2px hsl(156 50% 22% / 0.25);
 
     --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Fraunces', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    --sidebar-background: 240 15% 9%;
-    --sidebar-foreground: 240 10% 93%;
-    --sidebar-primary: 270 60% 62%;
-    --sidebar-primary-foreground: 240 15% 9%;
-    --sidebar-accent: 240 12% 16%;
-    --sidebar-accent-foreground: 240 10% 93%;
-    --sidebar-border: 240 12% 18%;
-    --sidebar-ring: 270 60% 62%;
+    --sidebar-background: 42 25% 92%;
+    --sidebar-foreground: 30 12% 12%;
+    --sidebar-primary: 156 50% 22%;
+    --sidebar-primary-foreground: 42 30% 95%;
+    --sidebar-accent: 156 30% 88%;
+    --sidebar-accent-foreground: 156 50% 22%;
+    --sidebar-border: 30 18% 82%;
+    --sidebar-ring: 156 50% 22%;
   }
 }
 
@@ -72,50 +73,67 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
-    @apply font-bold tracking-tight;
+    font-family: var(--font-serif);
+    @apply font-medium tracking-tight;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+    color: hsl(var(--primary));
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium
-           transition-all duration-300 hover:opacity-90;
-    box-shadow: var(--shadow-button);
+    @apply bg-primary text-primary-foreground px-5 py-2.5 rounded-sm font-medium text-sm
+           tracking-wide transition-colors duration-200 hover:bg-primary/90;
   }
 
   .btn-outline {
-    @apply bg-transparent border border-primary/50 text-primary px-6 py-3 rounded-lg font-medium
-           transition-all duration-300 hover:bg-primary/10;
-  }
-
-  .card-soft {
-    background: var(--gradient-card);
-    box-shadow: var(--shadow-card);
-    @apply rounded-2xl p-6 border border-border;
+    @apply bg-transparent border border-foreground/40 text-foreground px-5 py-2.5 rounded-sm font-medium text-sm
+           tracking-wide transition-colors duration-200 hover:border-foreground hover:bg-foreground hover:text-background;
   }
 
   .section-container {
-    @apply max-w-6xl mx-auto px-6;
+    @apply max-w-3xl mx-auto px-6;
   }
 
-  .text-gradient {
-    background: var(--gradient-purple);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .text-accent-ink {
+    color: hsl(var(--primary));
+  }
+
+  .hairline {
+    @apply h-px w-full bg-border;
   }
 
   .tech-pill {
-    @apply px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20;
+    @apply px-2.5 py-0.5 rounded-sm text-[11px] font-mono tracking-wide bg-accent text-accent-foreground;
   }
 
   .skill-tag {
-    @apply px-4 py-2 rounded-full text-sm font-medium bg-secondary text-foreground border border-border;
+    @apply text-sm font-mono text-foreground/80;
+  }
+
+  .sidebar-link {
+    @apply flex items-baseline gap-3 text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors;
+  }
+
+  .drop-cap::first-letter {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    float: left;
+    font-size: 4.5rem;
+    line-height: 0.85;
+    padding: 0.4rem 0.5rem 0 0;
+    color: hsl(var(--primary));
   }
 }
 
 @layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
   .font-mono {
     font-family: var(--font-mono);
   }
@@ -131,7 +149,7 @@
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(12px);
     }
     to {
       opacity: 1;

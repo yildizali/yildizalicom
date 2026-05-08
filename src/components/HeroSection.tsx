@@ -1,95 +1,71 @@
-import { ArrowDown, ExternalLink } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { LinkedinIcon as Linkedin } from "@/components/icons/LinkedinIcon";
 import profilePhoto from "@/assets/ali_yildiz.jpeg";
 
 const HeroSection = () => {
   return (
-    <section
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: 'var(--gradient-hero)' }}
-    >
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(hsl(270 60% 62%) 1px, transparent 1px), linear-gradient(90deg, hsl(270 60% 62%) 1px, transparent 1px)',
-        backgroundSize: '60px 60px',
-      }} />
+    <section className="px-6 md:px-12 lg:px-16 pt-12 md:pt-20 pb-20">
+      <div className="max-w-4xl">
+        <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground mb-8 animate-fade-in">
+          01 &mdash; Introduction
+        </div>
 
-      <div className="section-container relative z-10 py-20">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+        <h2 className="font-serif text-[2.25rem] sm:text-5xl md:text-6xl leading-[1.05] tracking-tight text-foreground mb-12 animate-fade-up">
+          Engineering data,{" "}
+          <span className="italic font-medium text-accent-ink">end&nbsp;to&nbsp;end</span>{" "}
+          &mdash; across cloud, code,&nbsp;and&nbsp;teams.
+        </h2>
 
-          {/* Photo */}
-          <div className="flex-shrink-0 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/30 shadow-card">
-              <img
-                src={profilePhoto}
-                alt="Ali Yildiz"
-                width={460}
-                height={460}
-                fetchPriority="high"
-                decoding="async"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="text-center md:text-left">
-            {/* Name */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 animate-fade-up leading-tight" style={{ animationDelay: '0.2s' }}>
-              Ali Yildiz
-            </h1>
-
-            {/* Title */}
-            <p className="text-xl md:text-2xl text-primary font-semibold mb-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              Senior Data and Platform Engineer
+        <div
+          className="grid sm:grid-cols-[auto,1fr] gap-8 sm:gap-10 items-start mb-12 animate-fade-up"
+          style={{ animationDelay: "0.15s" }}
+        >
+          <img
+            src={profilePhoto}
+            alt="Ali Yildiz"
+            width={460}
+            height={460}
+            fetchPriority="high"
+            decoding="async"
+            className="w-32 h-40 sm:w-40 sm:h-52 object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-sm border border-border"
+          />
+          <div>
+            <p className="font-serif italic text-lg text-muted-foreground mb-4">
+              A note from the desk of &mdash;
             </p>
-
-            {/* Company */}
-            <div className="mb-6 animate-fade-up" style={{ animationDelay: '0.35s' }}>
+            <p className="text-base leading-relaxed text-foreground/85 max-w-md">
+              Building scalable data pipelines and cloud architectures across GCP, AWS,
+              and Azure. Currently embedded with NIBC via{" "}
               <a
                 href="https://www.xebia.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                className="underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground transition-colors"
               >
-                <span className="text-base">at</span>
-                <span className="text-foreground font-semibold text-base">Xebia B.V.</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                Xebia&nbsp;B.V.
               </a>
-            </div>
-
-            {/* Headline */}
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground/80 mb-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-              Engineering Data,{' '}
-              <span className="text-gradient">End to End</span>
-            </h2>
-
-            {/* Tagline */}
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl animate-fade-up" style={{ animationDelay: '0.45s' }}>
-              Building scalable data pipelines and cloud architectures across GCP, AWS, and Azure
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start animate-fade-up" style={{ animationDelay: '0.5s' }}>
-              <a
-                href="#experience"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                <ArrowDown className="w-4 h-4" />
-                View Experience
-              </a>
-              <a
-                href="https://www.linkedin.com/in/yildizalicom"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Connect with Ali Yildiz on LinkedIn"
-                className="btn-outline inline-flex items-center gap-2"
-              >
-                <Linkedin className="w-4 h-4" />
-                Connect
-              </a>
-            </div>
           </div>
+        </div>
+
+        <div
+          className="flex flex-wrap gap-3 animate-fade-up"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <a href="#experience" className="btn-primary inline-flex items-center gap-2">
+            Read the dossier
+            <ArrowDown className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yildizalicom"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Connect with Ali Yildiz on LinkedIn"
+            className="btn-outline inline-flex items-center gap-2"
+          >
+            <Linkedin className="w-3.5 h-3.5" />
+            Connect
+          </a>
         </div>
       </div>
     </section>

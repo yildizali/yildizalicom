@@ -1,54 +1,49 @@
-import { GraduationCap } from "lucide-react";
 import { education, languages } from "@/data/resume";
 
 const EducationSection = () => {
   return (
-    <section id="education" className="py-24 bg-background">
-      <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Education
-          </h2>
+    <section
+      id="education"
+      className="px-6 md:px-12 lg:px-16 py-20 md:py-28 border-t border-border"
+    >
+      <div className="max-w-4xl">
+        <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+          06 &mdash; Schooling &amp; tongues
         </div>
+        <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12">
+          Education.
+        </h2>
 
-        <div className="max-w-3xl mx-auto">
-          {/* Education entries */}
-          <div className="space-y-6 mb-12">
-            {education.map((edu, index) => (
-              <div
-                key={`${edu.institution}-${edu.startYear}`}
-                className="flex items-start gap-4 p-5 rounded-xl bg-card border border-border animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <GraduationCap className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 className="font-bold text-foreground">
-                      {edu.degree} — {edu.field}
-                    </h3>
-                    <span className="text-sm text-muted-foreground font-mono">
-                      {edu.startYear}–{edu.endYear}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mt-1">{edu.institution}</p>
-                </div>
+        <ol className="border-t border-border mb-16">
+          {education.map((edu, index) => (
+            <li
+              key={`${edu.institution}-${edu.startYear}`}
+              className="grid grid-cols-1 sm:grid-cols-[110px,1fr] gap-2 sm:gap-8 py-6 border-b border-border animate-fade-up"
+              style={{ animationDelay: `${index * 0.07}s` }}
+            >
+              <div className="font-mono text-xs tabular-nums text-muted-foreground">
+                {edu.startYear}&ndash;{edu.endYear}
               </div>
-            ))}
-          </div>
+              <div>
+                <h3 className="font-serif text-lg text-foreground leading-tight">
+                  {edu.degree} &middot; {edu.field}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-1">{edu.institution}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
 
-          {/* Languages */}
-          <div className="text-center">
-            <h3 className="text-lg font-bold text-foreground mb-4">Languages</h3>
-            <div className="flex justify-center gap-4 flex-wrap">
-              {languages.map((lang) => (
-                <span key={lang.language} className="skill-tag">
-                  {lang.language} <span className="text-muted-foreground ml-1">({lang.proficiency})</span>
-                </span>
-              ))}
-            </div>
-          </div>
+        <div>
+          <h3 className="font-serif italic text-lg text-foreground mb-4">Languages</h3>
+          <ul className="flex flex-wrap gap-x-8 gap-y-2 font-mono text-sm">
+            {languages.map((lang) => (
+              <li key={lang.language} className="text-foreground/85">
+                {lang.language}
+                <span className="text-muted-foreground ml-2">({lang.proficiency})</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

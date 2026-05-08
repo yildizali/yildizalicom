@@ -61,6 +61,7 @@ Removing those took the production JS bundle from ~402 KB to ~214 KB.
 ├── src/
 │   ├── components/
 │   │   ├── icons/      # inline SVG icons (Github, Linkedin)
+│   │   ├── Sidebar.tsx     # sticky left rail: name, nav, socials
 │   │   ├── HeroSection.tsx
 │   │   ├── MetricsSection.tsx
 │   │   ├── ExperienceSection.tsx

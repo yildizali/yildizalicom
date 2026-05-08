@@ -1,3 +1,4 @@
+import Sidebar from "@/components/Sidebar";
 import HeroSection from "@/components/HeroSection";
 import MetricsSection from "@/components/MetricsSection";
 import AboutSection from "@/components/AboutSection";
@@ -9,16 +10,19 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
-      <HeroSection />
-      <MetricsSection />
-      <AboutSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <EducationSection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <div className="md:flex md:items-start min-h-screen">
+      <Sidebar />
+      <main className="flex-1 min-w-0">
+        <HeroSection />
+        <MetricsSection />
+        <AboutSection />
+        <ExperienceSection />
+        <SkillsSection />
+        <EducationSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </div>
   );
 };
 
